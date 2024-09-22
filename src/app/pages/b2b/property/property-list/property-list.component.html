@@ -1,0 +1,104 @@
+<div class=" header bg-danger pb-6">
+    <div class=" container-fluid">
+        <div class=" header-body">
+            <div class=" row align-items-center py-4">
+                <div class=" col-lg-6 col-7">
+                    <h6 class=" h2 text-white d-inline-block mb-0">Properties</h6>
+                </div>
+
+                <div class=" col-lg-6 col-5 text-right">
+                    <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewLPropertyCreation()"> New </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" container-fluid mt--6">
+    <div class=" row">
+        <div class=" col">
+            <div class=" card">
+                <div class=" card-header border-0">
+                    <div class=" row">
+                        <div class=" col-6">
+                            <h3 class=" mb-0">Properties</h3>
+                        </div>
+
+                        <div class=" col-6 text-right">
+                            <!-- <a class=" btn btn-sm btn-neutral btn-round btn-icon" href="javascript:void(0)"
+                                tooltip="Edit product" placement="top">
+                                <span class=" btn-inner--icon">
+                                    <i class=" fas fa-user-edit"> </i>
+                                </span>
+
+                                <span class=" btn-inner--text"> Export </span>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" table-responsive">
+                    <table class=" table align-items-center table-flush">
+                        <thead class=" thead-light">
+                            <tr>
+                                <th>Property Name</th>
+                                <th>Company</th>
+                                <th>State</th>
+                                <th>Phone</th>
+                                <th>property Status</th>
+                                <th>Start Date</th>
+                                <th>Extension Date</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let property of properties">
+                                <td>{{property.propertyName}} </td>
+                                <td>{{property.companyName}}</td>
+                                <td>{{property.address?.state}}</td>
+
+                                <td>{{property.mobile}}</td>
+
+                                <td>{{property.status}}</td>
+                                <td>{{property.startDate | date: 'dd/MM/yyyy'}}</td>
+
+                                <td>{{property.extensionDate | date: 'dd/MM/yyyy'}}</td>
+                                <td class="table-actions">
+
+                                    <a class="table-action" tooltip="Edit Property" placement="top"
+                                        href="javascript:void(0)">
+                                        <i class=" fas fa-user-edit" (click)="edit(property)"> </i>
+                                    </a>
+
+                                    <a class=" table-action table-action-delete" tooltip="View Property"
+                                        placement="top" href="javascript:void(0)">
+                                        <i class=" fas fa-eye" (click)="view(property)"> </i>
+                                    </a>
+
+
+                                    <a class=" table-action table-action-delete" tooltip="Delete Property"
+                                    placement="top" href="javascript:void(0)">
+                                    <i class="fa fa-trash" (click)="questionSwal(property.id)"> </i>
+                                </a>
+
+
+                                    <!-- <button (click)="edit(property)" class=" btn btn-link" type="button"
+                                        placement="left" ngbTooltip="Edit Lead" container="body">
+                                        <i class=" fas fa-user-edit"> </i>
+                                    </button>
+                                    <button (click)="view(property)" class=" btn btn-link" type="button"
+                                        placement="left" ngbTooltip="View Lead" container="body">
+                                        <i class=" fas fa-trash"> </i>
+                                    </button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

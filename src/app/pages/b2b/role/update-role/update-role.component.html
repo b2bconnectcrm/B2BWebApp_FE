@@ -1,0 +1,109 @@
+<div class=" header bg-danger pb-6">
+    <div class=" container-fluid">
+        <div class=" header-body">
+            <div class=" row align-items-center py-4">
+                <div class=" col-lg-6 col-7">
+                    <h6 class=" h2 text-white d-inline-block mb-0">Roles</h6>
+
+                    <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+                        <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class=" breadcrumb-item">
+                                <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                            </li>
+
+                            <li class=" breadcrumb-item">
+                                <a href="javascript:void(0)"> Update Role</a>
+                            </li>
+
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class=" col-lg-6 col-5 text-right">
+                    <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoBack()"> List </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" container-fluid mt--6">
+    <div class=" card mb-4">
+        <div class=" card-header">
+            <h3 class=" mb-0"> Update Role </h3>
+        </div>
+
+        <form [formGroup]="updateRoleForm" (ngSubmit)="updateRole()">
+            <div class=" card-body">
+
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input1">
+                                Department
+                            </label>
+                            <select formControlName="department" class=" form-control" placeholder=" department"
+                                id="input5">
+                                <option value="">Selec Department</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="HR">HR</option>
+                            </select>
+                            <small *ngIf="f['department'].touched && f['department'].errors">Required</small>
+                        </div>
+                    </div>
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input1">
+                                Role Name
+                            </label>
+                            <input class=" form-control" id="input1" placeholder="Role Name" type="text"
+                                formControlName="roleName" />
+                            <small *ngIf="f['roleName'].touched && f['roleName'].errors">Required</small>
+
+                        </div>
+                    </div>
+
+                   
+                </div>
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input2">
+                                Display Name
+                            </label>
+
+                            <input class=" form-control" id="input2" placeholder=" ROle Display Name" type="text"
+                                formControlName="roleDisplayName" />
+                            <small *ngIf="f['roleDisplayName'].touched && f['roleDisplayName'].errors">Required</small>
+
+                        </div>
+                    </div>
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input3">
+                               Description
+                            </label>
+
+                            <input class=" form-control" id="input3" placeholder=" Description" type="text"
+                                formControlName="description" />
+
+                        </div>
+                    </div>
+
+                    <div class=" col-md-6">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class=" card-footer">
+                <button class=" btn btn-fill btn-success" type="submit"
+                    [disabled]="this.updateRoleForm.invalid">Update</button>
+                <button class=" btn btn-fill btn-danger" type="button" (click)="gotoBack()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>

@@ -1,0 +1,254 @@
+<div class=" header bg-danger pb-6">
+  <div class=" container-fluid">
+    <div class=" header-body">
+      <div class=" row align-items-center py-4">
+        <div class=" col-lg-6 col-7">
+          <h6 class=" h2 text-white d-inline-block mb-0">Default</h6>
+
+          <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+            <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class=" breadcrumb-item">
+                <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+              </li>
+
+              <li class=" breadcrumb-item">
+                <a href="javascript:void(0)"> Dashboards </a>
+              </li>
+
+              <li aria-current="page" class=" breadcrumb-item active">
+                Default
+              </li>
+            </ol>
+          </nav>
+        </div>
+
+        <!-- <div class=" col-lg-6 col-5 text-right">
+          <a class=" btn btn-sm btn-neutral" href="javascript:void(0)"> New </a>
+
+          <a class=" btn btn-sm btn-neutral" href="javascript:void(0)">
+            Filters
+          </a>
+        </div> -->
+      </div>
+
+      <div class=" row">
+        <div class=" col-xl-6 col-md-6">
+          <div class=" card card-stats">
+            <div class=" card-body">
+              <div class=" row">
+                <div class=" col">
+                  <h5 class=" card-title text-uppercase text-muted mb-0">
+                    Total Properties
+                  </h5>
+
+                  <span class=" h2 font-weight-bold mb-0"> 350,897 </span>
+                </div>
+
+                <div class=" col-auto">
+                  <div class=" icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                    <i class=" ni ni-active-40"> </i>
+                  </div>
+                </div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                  aria-valuemax="100" style="width: 60%;"></div>
+              </div>
+              <!-- <p class=" mt-3 mb-0 text-sm">
+                <span class=" text-success mr-2">
+                  <i class=" fa fa-arrow-up"> </i> 3.48%
+                </span>
+
+                <span class=" text-nowrap"> Since last month </span>
+              </p> -->
+            </div>
+          </div>
+        </div>
+        <div class=" col-xl-3 col-md-6">
+          <div class=" card card-stats">
+            <div class=" card-body">
+              <div class=" row">
+                <div class=" col">
+                  <h5 class=" card-title text-uppercase text-muted mb-0">
+                    Total Visits
+                  </h5>
+
+                  <span class=" h2 font-weight-bold mb-0"> 924 </span>
+                </div>
+
+                <div class=" col-auto">
+                  <div class=" icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                    <i class=" ni ni-money-coins"> </i>
+                  </div>
+                </div>
+              </div>
+
+              <p class=" mt-3 mb-0 text-sm">
+                <span class=" text-success mr-2">
+                  <i class=" fa fa-arrow-up"> </i> 3.48%
+                </span>
+
+                <span class=" text-nowrap"> Current month </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class=" col-xl-3 col-md-6">
+          <div class=" card card-stats">
+            <div class=" card-body">
+              <div class=" row">
+                <div class=" col">
+                  <h5 class=" card-title text-uppercase text-muted mb-0">
+                    Avg. No of Visits
+                  </h5>
+
+                  <span class=" h2 font-weight-bold mb-0"> 49 </span>
+                </div>
+
+                <div class=" col-auto">
+                  <div class=" icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                    <i class=" ni ni-chart-bar-32"> </i>
+                  </div>
+                </div>
+              </div>
+
+              <p class=" mt-3 mb-0 text-sm">
+                <span class=" text-success mr-2">
+                  <!-- <i class=" fa fa-arrow-up"> </i> 3.48% -->
+                </span>
+
+                <!-- <span class=" text-nowrap"> Since last month </span> -->
+                <span class=" text-nowrap"> </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class=" container-fluid mt--6">
+  <div class=" row">
+    <div class=" col-xl-3 col-md-6">
+      <div class=" card bg-gradient-info border-0">
+        <div class=" card-body">
+          <div class=" row">
+            <div class=" col">
+              <h5 class=" card-title text-uppercase text-muted mb-0 text-white">
+                Offers Made
+              </h5>
+
+              <span class=" h2 font-weight-bold mb-0 text-white">
+                76/100
+              </span>
+
+              <div class=" progress progress-xs mt-3 mb-0">
+                <progressbar type="success" [value]="76"> </progressbar>
+              </div>
+            </div>
+
+
+          </div>
+
+          <p class=" mt-3 mb-0 text-sm">
+            <a class=" text-nowrap text-white font-weight-600" href="javascript:void(0)">
+
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class=" col-xl-3 col-md-6">
+      <div class=" card bg-gradient-primary border-0">
+        <div class=" card-body">
+          <div class=" row">
+            <div class=" col">
+              <h5 class=" card-title text-uppercase text-muted mb-0 text-white">
+                Deals Closed
+              </h5>
+
+              <span class=" h2 font-weight-bold mb-0 text-white"> 55/100 </span>
+
+              <div class=" progress progress-xs mt-3 mb-0">
+                <progressbar type="success" [value]="55"> </progressbar>
+              </div>
+            </div>
+          </div>
+
+          <p class=" mt-3 mb-0 text-sm">
+            <a class=" text-nowrap text-white font-weight-600" href="javascript:void(0)">
+
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class=" col-xl-3 col-md-6">
+      <div class=" card bg-gradient-danger border-0">
+        <div class=" card-body">
+          <div class=" row">
+            <div class=" col">
+              <h5 class=" card-title text-uppercase text-muted mb-0 text-white">
+                Leads Closed
+              </h5>
+
+              <span class=" h2 font-weight-bold mb-0 text-white">
+                45/100
+              </span>
+
+              <div class=" progress progress-xs mt-3 mb-0">
+                <progressbar type="success" [value]="45"> </progressbar>
+              </div>
+            </div>
+          </div>
+
+          <p class=" mt-3 mb-0 text-sm">
+            <a class=" text-nowrap text-white font-weight-600" href="javascript:void(0)">
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class=" col-xl-3 col-md-6">
+      <div class=" card card-stats">
+        <div class=" card-body" style="border: 1px solid #80808063;">
+          <div class=" row">
+            <div class=" col">
+              <h5 class=" card-title text-uppercase text-muted mb-0">
+                Closed
+              </h5>
+              <h6 class=" card-title text-uppercase text-muted mb-0">
+                Current Month
+              </h6>
+            </div>
+            <div class=" col-auto">
+              <div class=" icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                49
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body" style="border: 1px solid #80808063;">
+          <div class=" row">
+            <div class=" col">
+              <h5 class=" card-title text-uppercase text-muted mb-0">
+                Closed
+              </h5>
+              <h6 class=" card-title text-uppercase text-muted mb-0">
+                Current Quarter
+              </h6>
+            </div>
+            <div class=" col-auto">
+              <div class=" icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                49
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

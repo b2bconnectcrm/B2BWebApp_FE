@@ -1,0 +1,201 @@
+<div class=" header bg-danger pb-6">
+  <div class="container-fluid">
+      <div class=" header-body">
+          <div class=" row align-items-center py-4">
+              <div class=" col-lg-6 col-7">
+                  <h6 class=" h2 text-white d-inline-block mb-0">Leads</h6>
+                
+              </div>
+
+              <!-- <div class=" col-lg-6 col-5 text-right">
+                  <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewLoadCreation()"> Add </a>
+              </div> -->
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class=" container-fluid mt--6">
+  <div class=" row">
+      <div class=" col">
+          <div class=" card">
+              <div class=" card-header border-0">
+                  <div class=" row">
+                      <div class=" col-6">
+                          <h3 class=" mb-0">Leads</h3>
+                      </div>
+
+                      <div class=" col-6 text-right">
+                          <a
+                            class=" btn btn-sm btn-neutral btn-round btn-icon"
+                            href="javascript:void(0)"
+                            tooltip="import Lead"
+                            placement="top"
+                          >
+                            <span class=" btn btn-sm btn-primary"> Import </span>
+                          </a>
+                           &nbsp; &nbsp;
+                          <a class=" btn btn-sm btn-primary" href="javascript:void(0)" (click)="gotoNewLoadCreation()"> Add </a>
+                          <!-- <button class=" btn btn-primary" type="button">Add</button> -->
+                      </div>
+                  </div>
+              </div>                            
+              <div class=" table-responsive">
+                  <table  [ngClass]="theamType=='D' ? 'table align-items-center table-dark table-flush' : 'table align-items-center table-flush'">
+                      <thead [ngClass]="theamType=='D' ? 'thead-dark' : 'thead-light'">
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>State</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Lead Status</th>
+                        <th>Created Date</th>
+                        <th>Owner</th>
+                        <th></th>
+                      </thead>
+
+                      <tbody>
+                        <tbody>
+                          <tr *ngFor="let lead of leadsList">
+                            <td>{{lead.firstName}} {{lead.lastName}}</td>
+                            <td>{{lead.industry}}</td>
+                            <td>{{lead.address?.state}}</td>
+          
+                            <td>{{lead.mobile}}</td>
+                            <td>{{lead.email}}</td>
+          
+                             <td>{{lead.leadStatus}}</td>
+                             <td>{{lead.createdDate | date}}</td>
+          
+                              <td>{{ lead.owner}}</td>
+                              <td class=" text-right">
+                                <div dropdown class="dropdown no-caret">
+                                  <a
+                                    id="button-basic"
+                                    dropdownToggle
+                                    role="button"
+                                    class="btn btn-sm btn-icon-only text-light dropdown-toggle"
+                                    aria-controls="dropdown-basic"
+                                  >
+                                    <i class=" fas fa-ellipsis-v"> </i>
+                                  </a>
+                    
+                                  <div
+                                    class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
+                                    *dropdownMenu
+                                  >
+                                    <a class="dropdown-item" (click)="edit(lead)">
+                                      Edit
+                                    </a>
+                    
+                                    <a class="dropdown-item" (click)="view(lead)">
+                                      View
+                                    </a>
+                    
+                                    <a class="dropdown-item" (click)="questionSwal(lead.id)">
+                                      Delete
+                                    </a>
+                                  </div>
+                                </div>
+                              </td>
+                          </tr>                        
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</div>
+<!-- 
+        <div class=" table-responsive">           
+            <button type="button" class="btn btn-primary btn-sm" (click)="gotoNewLoadCreation()">Add</button>
+            <table [ngClass]="theamVal == 'D' ? 'table table-dark align-items-center' : 'table align-items-center table-flush'">
+              <thead class=" thead-light">
+                <tr>                    
+                  <th class=" sort" data-sort="name" scope="col">Name</th>
+        
+                  <th class=" sort" data-sort="budget" scope="col">Company</th>
+        
+                  <th class=" sort" data-sort="status" scope="col">State</th>
+        
+                  <th scope="col">Phone</th>
+        
+                  <th class=" sort" data-sort="completion" scope="col"> Email </th>
+                  <th class=" sort" data-sort="completion" scope="col"> Lead Status </th>
+                  <th class=" sort" data-sort="completion" scope="col"> Created Date </th>
+                  <th class=" sort" data-sort="completion" scope="col"> Owner </th>                  
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody class=" list" *ngFor="let lead of leadsList1">
+                <tr>
+                  <th scope="row">
+                    <div class=" media align-items-center">
+                      <a
+                        class=" avatar rounded-circle mr-3"
+                        href="javascript:void(0)"
+                      >
+                        <img
+                          alt="Image placeholder"
+                          src="./assets/img/theme/bootstrap.jpg"
+                        />
+                      </a>
+        
+                      <div class=" media-body">
+                        <span class=" name mb-0 text-sm">
+                            {{lead.firstName}} {{lead.lastName}}
+                        </span>
+                      </div>
+                    </div>
+                  </th>
+        
+                  <td class=" budget">{{lead.industry}}</td>
+                  <td class=" budget">{{lead.address?.state}}</td>
+                  <td class=" budget">{{lead.mobile}}</td>
+                  <td class=" budget">{{lead.email}}</td>
+                  <td>
+                    <span class=" badge badge-dot mr-4">
+                      <i class=" bg-warning"> </i>
+        
+                      <span class=" status"> {{lead.leadStatus}} </span>
+                    </span>
+                  </td>
+                  <td class=" budget">{{lead.createdDate | date}}</td>
+                  <td class=" budget">{{ lead.owner}}</td>
+                  <td class=" text-right">
+                    <div dropdown class="dropdown no-caret">
+                      <a
+                        id="button-basic"
+                        dropdownToggle
+                        role="button"
+                        class="btn btn-sm btn-icon-only text-light dropdown-toggle"
+                        aria-controls="dropdown-basic"
+                      >
+                        <i class=" fas fa-ellipsis-v"> </i>
+                      </a>
+        
+                      <div
+                        class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
+                        *dropdownMenu
+                      >
+                        <a class="dropdown-item" (click)="edit(lead)">
+                          Edit
+                        </a>
+        
+                        <a class="dropdown-item" (click)="view(lead)">
+                          View
+                        </a>
+        
+                        <a class="dropdown-item" href="javascript:void(0)">
+                          Delete
+                        </a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+</tbody>        
+              </table>
+    </div>
+  -->

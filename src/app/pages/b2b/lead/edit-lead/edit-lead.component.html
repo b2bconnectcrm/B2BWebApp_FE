@@ -1,0 +1,275 @@
+<div class=" header bg-danger pb-6">
+    <div class=" container-fluid">
+        <div class=" header-body">
+            <div class=" row align-items-center py-4">
+                <div class=" col-lg-6 col-7">
+                    <h6 class=" h2 text-white d-inline-block mb-0">Leads</h6>
+
+                    <nav aria-label="breadcrumb" class=" d-none d-md-inline-block ml-md-4">
+                        <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class=" breadcrumb-item">
+                                <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                            </li>
+
+                            <li class=" breadcrumb-item">
+                                <a href="javascript:void(0)"> Edit Leads</a>
+                            </li>
+
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class=" col-lg-6 col-5 text-right">
+                    <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoBack()"> List </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" container-fluid mt--6">
+    <div class=" card mb-4">
+        <div class=" card-header">
+            <h3 class=" mb-0"> Edit Leads </h3>
+        </div>
+
+        <form [formGroup]="editLeadForm" (ngSubmit)="updateLead()">
+            <div class=" card-body">
+
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input1">
+                                First Name
+                            </label>
+                          <input [readOnly]="showView" class=" form-control" id="input1" placeholder=" First Name" type="text" formControlName="firstName" />
+                          <small  *ngIf="f['firstName'].touched && f['firstName'].errors">Required</small>                              
+                        </div>
+                    </div>
+
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input2">
+                                Middle Name
+                            </label>
+                            <input [readOnly]="showView" class=" form-control" id="input2" placeholder="  Middle Name" type="text"  formControlName="middleName" />
+                            </div>
+                    </div>
+                </div>
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input3">
+                               Last Name
+                            </label>
+
+                            <input [readOnly]="showView" class=" form-control" id="input3" placeholder="   Last Name" type="text" formControlName="lastName" />
+                            <small  *ngIf="f['lastName'].touched && f['lastName'].errors">Required</small>
+                   
+                  
+                        </div>
+                    </div>
+
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input4">
+                                Occupation
+                            </label>
+
+                            <input  [readOnly]="showView" class=" form-control" id="input4" placeholder="Occupation" type="text" formControlName="occupation" />
+                            <small  *ngIf="f['occupation'].touched && f['occupation'].errors">Required</small>
+                   
+                        </div>
+                    </div>
+                </div>
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input5">
+                                Lead Status 
+                            </label>
+                            <select  [readOnly]="showView" class=" form-control"  placeholder="Lead Status" formControlName="leadStatus" id="input5">
+                                <option value="">Select Lead Status</option>
+                                <option value="COLD">Cold</option>
+                                <option value="HOT">Hot</option>
+                                <option value="WARM">Warm</option>
+                                <option value="CLOSE">Close</option>
+                            </select>
+                            <small  *ngIf="f['leadStatus'].touched && f['leadStatus'].errors">Required</small>
+                            <!-- <input class=" form-control" id="input5" placeholder=" Property Type" type="text" /> -->
+                        </div>
+                    </div>
+
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input6">
+                                <label> Phone </label>
+                            </label>
+
+                            <input [readOnly]="showView" onlyNumber class=" form-control" id="input6" placeholder="Phone" type="tel"   formControlName="mobile"  />
+                            <small *ngIf="editLeadForm.controls.mobile.touched && editLeadForm.get('mobile').hasError('required')">Required</small>
+                            <small *ngIf="editLeadForm.controls.mobile.touched &&editLeadForm.get('mobile').hasError('pattern')">
+                                Enter Valid  Mobile number
+                              </small>
+                    
+                        </div>
+                    </div>
+                </div>
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input7">
+                                Email
+                            </label>
+
+                            <input [readOnly]="showView" class=" form-control" id="input7" placeholder="Email" type="email"
+                            formControlName="email" />                                        
+                            <small *ngIf="editLeadForm.controls.email.touched && editLeadForm.get('email').hasError('required')">Required</small>
+                            <small *ngIf="editLeadForm.controls.email.touched && editLeadForm.get('email').errors?.email">Enter Valid Email</small>
+                        
+                        </div>
+                    </div>                   
+                </div>
+                
+                <div formGroupName="address">
+
+                    <div class=" row">
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="input12">
+                                    Address
+                                </label>
+
+                                <input  [readOnly]="showView" class=" form-control" id="input12" placeholder="Address" type="text"    formControlName="houseNo" />
+                                <small  *ngIf="g['houseNo'].touched && g['houseNo'].errors">Required</small>                                           
+                        
+                                
+                            </div>
+                        </div>
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="input13">
+                                    City
+                                </label>
+
+                                <input  [readOnly]="showView" class=" form-control" id="input13" placeholder="State" type="text"  formControlName="village" />
+                                <small  *ngIf="g['village'].touched && g['village'].errors">Required</small>
+                              
+                       
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class=" row">
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="input14">
+                                    State
+                                </label>
+
+                                <input [readOnly]="showView" class=" form-control" id="input14" placeholder="State" type="text" formControlName="state" />
+                                <small  *ngIf="g['state'].touched && g['state'].errors">Required</small>
+                        
+                            </div>
+                        </div>
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="input14">
+                                    District
+                                </label>
+
+                                <input [readOnly]="showView" class=" form-control" id="input14" placeholder="District" type="text" formControlName="district" />
+                                <small  *ngIf="g['district'].touched && g['district'].errors">Required</small>
+                        
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class=" row">
+                       
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="input15">
+                                    Pin Code
+                                </label>
+
+                                <input [readOnly]="showView" onlyNumber class=" form-control" id="input15" placeholder="Pin Code" type="tel"  maxlength="6" formControlName="pincode" />     
+                                <small  *ngIf="g['pincode'].touched && g['pincode'].errors">Required</small>
+                        
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>    
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input6">
+                                <label> Annual Income </label>
+                                          </label>
+
+                            <input  [readOnly]="showView" class=" form-control" id="input6" placeholder="Annual Income" type="text" formControlName="annualIncome" />
+                            <small  *ngIf="f['annualIncome'].touched && f['annualIncome'].errors">Required</small>
+                    
+                        </div>
+                    </div>
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input5">
+                                Lead Source 
+                            </label>
+                            <select [readOnly]="showView"  class=" form-control"  placeholder=" Lead Source " formControlName="leadSource" id="input5">
+                                <option value="">Selec Lead Source</option>
+                                <option value="COMPANY_LEAD">Company Lead</option>
+                                <option value="OWN_LEAD">Self Lead</option>
+                                <option value="SHARED_LEAD">Shared Lead</option>
+                                <option value="COLDCALLL_LEAD">Cold Call Lead</option>
+                                <option value="CP_LEAD">cp Lead</option>
+                            </select>
+                            <small  *ngIf="f['leadSource'].touched && f['leadSource'].errors">Required</small>
+                         </div>
+                    </div>
+
+  
+                </div>
+                <div class=" row">
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input7">
+                                Industry
+                            </label>
+
+                            <input  [readOnly]="showView" class=" form-control" id="input7" placeholder="Industry" type="text"
+                            formControlName="industry" />
+                                        <small  *ngIf="f['industry'].touched && f['industry'].errors">Required</small>
+                               
+                        </div>
+                    </div>   
+                    <div class=" col-md-6">
+                        <div class=" form-group">
+                            <label class=" form-control-label" for="input7">
+                                Owner
+                            </label>
+
+                            <input [readOnly]="showView" class=" form-control" id="input7" placeholder="Owner" type="text"
+                            formControlName="owner"  />
+                               
+                        </div>
+                    </div>                   
+                </div>  
+
+
+            </div>
+            <div class=" card-footer">
+                <button class=" btn btn-fill btn-success" type="submit"
+                    [disabled]="this.editLeadForm.invalid">{{this.headerName}}</button>
+                <button class=" btn btn-fill btn-danger" type="button" (click)="gotoBack()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    
+</div>
