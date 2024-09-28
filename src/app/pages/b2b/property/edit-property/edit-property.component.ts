@@ -148,7 +148,7 @@ export class EditPropertyComponent implements OnInit {
             this.imageData = response;
             console.dir(this.imageData);
             this.editPropertyForm.patchValue({
-              propertyMap: this.imageData?.imageName
+              propertyMap: this.imageData?.path
             })
             this.updateProperty();
           },

@@ -253,11 +253,11 @@ export class EditEmployeeComponent implements OnInit {
             this.aadharFileUploaded = true;
             this.imageData = response;
             console.dir(this.imageData);
-            console.dir(this.imageData.imageName);
-            console.dir(this.imageData?.imageName);
-            console.dir(response?.imageName);
+            console.dir(this.imageData.path);
+            console.dir(this.imageData?.path);
+            console.dir(response?.path);
             this.editEmployeeForm.patchValue({
-              aadharFilePath: this.imageData.imageName
+              aadharFilePath: this.imageData.path
             })
             console.dir( this.editEmployeeForm.value)
           },
@@ -280,11 +280,11 @@ export class EditEmployeeComponent implements OnInit {
             this.pancardFileUploaded = true;
             this.imageData = response;
             console.dir(this.imageData);
-            console.dir(this.imageData.imageName);
-            console.dir(this.imageData?.imageName);
-            console.dir(response?.imageName);
+            console.dir(this.imageData.path);
+            console.dir(this.imageData?.path);
+            console.dir(response?.path);
             this.editEmployeeForm.patchValue({
-              pancardFilePath: this.imageData.imageName
+              pancardFilePath: this.imageData.path
             })
             console.dir( this.editEmployeeForm.value)
           },

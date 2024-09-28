@@ -132,7 +132,7 @@ export class AddPropertyComponent implements OnInit {
             console.dir(this.imageData?.imageName);
             console.dir(response?.imageName);
             this.createPropertyForm.patchValue({
-              propertyMap: this.imageData.imageName
+              propertyMap: this.imageData.path
             })
 
             console.dir(this.createPropertyForm.get('propertyMap').value)
