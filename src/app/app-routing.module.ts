@@ -21,6 +21,9 @@ import { EditEmployeeComponent } from "./pages/b2b/employee/edit-employee/edit-e
 import { RoleListComponent } from "./pages/b2b/role/role-list/role-list.component";
 import { AddRoleComponent } from "./pages/b2b/role/add-role/add-role.component";
 import { UpdateRoleComponent } from "./pages/b2b/role/update-role/update-role.component";
+import { DealsListComponent } from "./pages/b2b/deals/deals-list/deals-list.component";
+import { CreateDealsComponent } from "./pages/b2b/deals/create-deals/create-deals.component";
+import { UpdateDealsComponent } from "./pages/b2b/deals/update-deals/update-deals.component";
 
 const routes: Routes = [
   {
@@ -46,48 +49,61 @@ const routes: Routes = [
     children: [
       {
         path: "dashboard",
-        component:DashboardComponent
+        component: DashboardComponent
       },
       {
         path: "employeeList",
-        component:EmployeeListComponent
+        component: EmployeeListComponent
       },
       {
         path: "add_employee",
-        component:AddEmployeeComponent
+        component: AddEmployeeComponent
       },
       {
         path: "edit_employee/:id/:type",
-        component:EditEmployeeComponent
+        component: EditEmployeeComponent
       },
       {
         path: "leads",
-        component:LeadListComponent
+        component: LeadListComponent
       },
+
       { path: "add_lead", component: AddLeadComponent },
       { path: "edit_lead/:id/:type", component: EditLeadComponent },
       {
         path: "properties",
-        component:PropertyListComponent
+        component: PropertyListComponent
       },
       { path: "add_property", component: AddPropertyComponent },
-     { path: "edit_property/:id/:type", component: EditPropertyComponent },
+      { path: "edit_property/:id/:type", component: EditPropertyComponent },
       {
         path: "add_property",
-        component:AddPropertyComponent
+        component: AddPropertyComponent
       },
 
       {
         path: "roleList",
-        component:RoleListComponent
+        component: RoleListComponent
       },
       {
         path: "add_role",
-        component:AddRoleComponent
+        component: AddRoleComponent
       },
       {
         path: "edit_role/:id",
-        component:UpdateRoleComponent
+        component: UpdateRoleComponent
+      },
+      {
+        path: "deals-list",
+        component: DealsListComponent
+      },
+      {
+        path: "create-deals",
+        component: CreateDealsComponent
+      },
+      {
+        path: "update-deals",
+        component: UpdateDealsComponent
       },
       {
         path: "dashboards",
@@ -154,4 +170,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

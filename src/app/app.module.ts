@@ -35,6 +35,9 @@ import { LoginComponent } from './pages/b2b/login/login.component';
 import { RoleListComponent } from './pages/b2b/role/role-list/role-list.component';
 import { AddRoleComponent } from './pages/b2b/role/add-role/add-role.component';
 import { UpdateRoleComponent } from './pages/b2b/role/update-role/update-role.component';
+import { CreateDealsComponent } from './pages/b2b/deals/create-deals/create-deals.component';
+import { DealsListComponent } from './pages/b2b/deals/deals-list/deals-list.component';
+import { UpdateDealsComponent } from './pages/b2b/deals/update-deals/update-deals.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { UpdateRoleComponent } from './pages/b2b/role/update-role/update-role.co
     LoginComponent,
     RoleListComponent,
     AddRoleComponent,
-    UpdateRoleComponent
+    UpdateRoleComponent,
+    CreateDealsComponent,
+    DealsListComponent,
+    UpdateDealsComponent
   ],
   imports: [
     BrowserAnimationsModule,

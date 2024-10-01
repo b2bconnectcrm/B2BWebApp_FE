@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.userService.updateLoginUser(this.user);
       console.dir(this.user)
       this.userService.updateData({ username: this.user.username, mobile: this.user.mobile });
-      this.router.navigateByUrl("/otp");
+      this.router.navigateByUrl("/admin/dashboard");
     }, (error: any) => {
       this.notificationService.showNotification("danger","Please Enter Valid Credentials");
     })

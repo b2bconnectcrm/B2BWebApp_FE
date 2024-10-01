@@ -1,0 +1,84 @@
+<div class=" header bg-danger pb-6">
+     <div class=" container-fluid">
+         <div class=" header-body">
+             <div class=" row align-items-center py-4">
+                 <div class=" col-lg-6 col-7">
+                     <h6 class=" h2 text-white d-inline-block mb-0">Employee's</h6>
+                 </div>
+   
+                 <div class=" col-lg-6 col-5 text-right">
+                     <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewLemployeeCreation()"> New </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+   </div>
+   
+   <div class=" container-fluid mt--6">
+     <div class=" row">
+         <div class=" col">
+             <div class=" card">
+                 <div class=" card-header border-0">
+                     <div class=" row">
+                         <div class=" col-6">
+                             <h3 class=" mb-0">Employee's</h3>
+                         </div>
+   
+                         <div class=" col-6 text-right">
+                            
+                         </div>
+                     </div>
+                 </div>
+   
+                 <div class=" table-responsive">
+                     <table class=" table align-items-center table-flush">
+                         <thead class=" thead-light">
+                             <tr>
+                                 <th>Employee Name</th>
+                                 <th>Username</th>
+                                 <th>Email</th>
+                                 <th>Phone</th>
+                                 <th>Department</th>
+                                 <th>Role</th>
+                                 <th>Options</th>
+                             </tr>
+                         </thead>
+   
+                         <tbody>
+                             <tr *ngFor="let employee of employees">
+                                 <td>{{employee.name}} </td>
+                                 <td>{{employee.username}}</td>
+                                 <td>{{employee.email}}</td>
+                                 <td>{{employee.mobile}}</td>
+   
+                                 <td>{{employee.department}}</td>
+   
+                                 <td>{{employee?.role?.roleName}}</td>
+                                 <td class="table-actions">
+   
+                                     <a class="table-action" tooltip="Edit Employee" placement="top"
+                                         href="javascript:void(0)">
+                                         <i class=" fas fa-user-edit" (click)="edit(employee)"> </i>
+                                     </a>
+   
+                                     <a class=" table-action table-action-delete" tooltip="View Employee"
+                                         placement="top" href="javascript:void(0)">
+                                         <i class=" fas fa-eye" (click)="view(employee)"> </i>
+                                     </a>
+   
+                                     <a class=" table-action table-action-delete" tooltip="Delete Employee"
+                                     placement="top" href="javascript:void(0)">
+                                     <i class="fa fa-trash" (click)="questionSwal(employee.id)"> </i>
+                                 </a>
+                                    
+                                 </td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+     </div>
+   
+   
+   </div>

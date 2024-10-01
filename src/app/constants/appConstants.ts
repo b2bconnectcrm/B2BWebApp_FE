@@ -2,7 +2,6 @@ import { environment } from "src/environments/environment";
 
 const baseUrl = `${environment.apiUrl}`;
 export class AppConstants {
-   
 
     public static uploadUrl = `${baseUrl}` + "file/upload";
 
@@ -50,12 +49,12 @@ export class AppConstants {
     public static DELETE_PROPERTY_BY_ID(propertyId: number) {
         return `${baseUrl}` + "property/" + propertyId;
     }
-    
+
 
     public static DELETE_LEADS_BY_ID(leadId: number) {
         return `${baseUrl}` + "lead/" + leadId;
     }
-    
+
     public static POST_CREAE_EMPLOYEE() {
         return `${baseUrl}` + "employee/add";
     }
@@ -80,7 +79,7 @@ export class AppConstants {
         return `${baseUrl}` + "role/all";
     }
     public static GET_ALL_ROLES_BY_DEPARTMENT(department: String) {
-        return `${baseUrl}` + "role/all/"+department;
+        return `${baseUrl}` + "role/all/" + department;
     }
 
     public static POST_CREAE_ROLE() {
@@ -88,15 +87,30 @@ export class AppConstants {
     }
 
     public static GET_ROLE_BY_ID(roleId: number) {
-        return `${baseUrl}` + "role/"+roleId;
+        return `${baseUrl}` + "role/" + roleId;
     }
 
     public static PUT_UPDATE_ROLE(roleId: number) {
-        return `${baseUrl}` + "role/"+roleId;
+        return `${baseUrl}` + "role/" + roleId;
     }
 
     public static DELETE_ROLE_BY_ID(roleId: number) {
-        return `${baseUrl}` + "role/"+roleId;
+        return `${baseUrl}` + "role/" + roleId;
     }
-    
+
+    public static POST_CREAE_DEALS(): string {
+        return `${baseUrl}` + "deals/add";
+    }
+    public static GET_ALL_DEALS(): string {
+        return `${baseUrl}` + "deals/all";
+    }
+    public static GET_DEALS_BY_ID(id: any): string {
+        return `${baseUrl}` + "deals/one/" + id;
+    }
+    public static PUT_UPDATE_DEALS(id: any): string {
+        return `${baseUrl}` + "deals/" + id;
+    }
+    public static DELETE_DEALS_BY_ID(id: any): string {
+        return `${baseUrl}` + "deals/" + id;
+    }
 }

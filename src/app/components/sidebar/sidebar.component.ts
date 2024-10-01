@@ -61,6 +61,13 @@ export const ROUTES: RouteInfo[] = [
     type: "link",
     icontype: "ni-ui-04 text-info",
   },
+  {
+    path: "/admin/deals-list",
+    title: "Deals",
+    type: "link",
+    icontype: "ni-ungroup text-orange",
+  },
+  
   
   // ,
   // {
