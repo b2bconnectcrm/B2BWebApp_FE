@@ -102,7 +102,7 @@ const routes: Routes = [
         component: CreateDealsComponent
       },
       {
-        path: "update-deals",
+        path: "update-deals/:id/:type",
         component: UpdateDealsComponent
       },
       {

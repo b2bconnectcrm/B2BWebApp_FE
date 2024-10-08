@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
    private notificationService: NotificationService) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      mobile: ['', Validators.required],
+      password: ['', Validators.required],
       otp: [''],
 
     })

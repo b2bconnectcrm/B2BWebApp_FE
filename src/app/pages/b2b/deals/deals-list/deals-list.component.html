@@ -3,11 +3,11 @@
          <div class=" header-body">
              <div class=" row align-items-center py-4">
                  <div class=" col-lg-6 col-7">
-                     <h6 class=" h2 text-white d-inline-block mb-0">Employee's</h6>
+                     <h6 class=" h2 text-white d-inline-block mb-0">Deals</h6>
                  </div>
    
                  <div class=" col-lg-6 col-5 text-right">
-                     <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewLemployeeCreation()"> New </a>
+                     <a class=" btn btn-sm btn-neutral" href="javascript:void(0)" (click)="gotoNewDealsCreation()"> New </a>
                  </div>
              </div>
          </div>
@@ -21,7 +21,7 @@
                  <div class=" card-header border-0">
                      <div class=" row">
                          <div class=" col-6">
-                             <h3 class=" mb-0">Employee's</h3>
+                             <h3 class=" mb-0">Deals</h3>
                          </div>
    
                          <div class=" col-6 text-right">
@@ -34,41 +34,35 @@
                      <table class=" table align-items-center table-flush">
                          <thead class=" thead-light">
                              <tr>
-                                 <th>Employee Name</th>
-                                 <th>Username</th>
-                                 <th>Email</th>
+                                 <th>Deal Name</th>
+                                 <th>Client Name</th>
                                  <th>Phone</th>
-                                 <th>Department</th>
-                                 <th>Role</th>
+                                 <th>Project Type</th>
                                  <th>Options</th>
                              </tr>
                          </thead>
    
                          <tbody>
-                             <tr *ngFor="let employee of employees">
-                                 <td>{{employee.name}} </td>
-                                 <td>{{employee.username}}</td>
-                                 <td>{{employee.email}}</td>
-                                 <td>{{employee.mobile}}</td>
-   
-                                 <td>{{employee.department}}</td>
-   
-                                 <td>{{employee?.role?.roleName}}</td>
+                             <tr *ngFor="let deal of deals">
+                                 <td>{{deal.dealName}} </td>
+                                 <td>{{deal.clientName}}</td>
+                                 <td>{{deal.phone}}</td>
+                                 <td>{{deal.projectType}}</td>
                                  <td class="table-actions">
    
-                                     <a class="table-action" tooltip="Edit Employee" placement="top"
+                                     <a class="table-action" tooltip="Edit Deals" placement="top"
                                          href="javascript:void(0)">
-                                         <i class=" fas fa-user-edit" (click)="edit(employee)"> </i>
+                                         <i class=" fas fa-user-edit" (click)="edit(deal)"> </i>
                                      </a>
    
-                                     <a class=" table-action table-action-delete" tooltip="View Employee"
+                                     <a class=" table-action table-action-delete" tooltip="View Deals"
                                          placement="top" href="javascript:void(0)">
-                                         <i class=" fas fa-eye" (click)="view(employee)"> </i>
+                                         <i class=" fas fa-eye" (click)="view(deal)"> </i>
                                      </a>
    
-                                     <a class=" table-action table-action-delete" tooltip="Delete Employee"
+                                     <a class=" table-action table-action-delete" tooltip="Delete Deals"
                                      placement="top" href="javascript:void(0)">
-                                     <i class="fa fa-trash" (click)="questionSwal(employee.id)"> </i>
+                                     <i class="fa fa-trash" (click)="questionSwal(deal.id)"> </i>
                                  </a>
                                     
                                  </td>

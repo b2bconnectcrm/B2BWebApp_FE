@@ -42,7 +42,7 @@ export class AddEmployeeComponent implements OnInit {
       mobile: ['', Validators.required],
       aadharNumber: ['', Validators.required],
       pancardNumber: ['', Validators.required],
-      username: ['', Validators.required],
+      username: ['B2B', Validators.required],
       department: ['', Validators.required],
       aadharFilePath: ['', Validators.required],
       pancardFilePath: ['', Validators.required],
@@ -82,6 +82,12 @@ export class AddEmployeeComponent implements OnInit {
   getAllRolesByDepartment() {
     this.roleService.getAllRolesByDepartment(this.createEmployeeForm.get('department').value).subscribe((data: any) => {
       this.roles = data;
+      if(this.roles != null && this.roles.length == 1){
+        this.createEmployeeForm.patchValue({
+          role: this.roles[0],
+          roleId: this.roles[0].id
+        })
+      }
       console.dir(this.roles);
     }, (error: any) => {
 
@@ -221,7 +227,7 @@ export class AddEmployeeComponent implements OnInit {
             console.dir(this.imageData?.path);
             console.dir(response?.path);
             this.createEmployeeForm.patchValue({
-              aadharFilePath: this.imageData.path
+              aadharFilePath: this.imageData.imageName
             })
             console.dir(this.createEmployeeForm.value)
           },
@@ -251,7 +257,7 @@ export class AddEmployeeComponent implements OnInit {
             console.dir(this.imageData?.path);
             console.dir(response?.imageName);
             this.createEmployeeForm.patchValue({
-              pancardFilePath: this.imageData.path
+              pancardFilePath: this.imageData.imageName
             })
             console.dir(this.createEmployeeForm.value)
           },
