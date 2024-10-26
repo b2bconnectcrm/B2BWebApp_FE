@@ -34,13 +34,16 @@ export class DealsListComponent implements OnInit {
 
     })
   }
+
   edit(data){  
     this.router.navigate(["/admin/update-deals",data.id,'edit']);
   } 
+
   view(data){  
     console.log(data)
     this.router.navigate(["/admin/update-deals",data.id,'view']);
   }
+  
 
   deleteDeals(id: number){
     this.dealsService.deleteDeals(id).subscribe((data: any) => {

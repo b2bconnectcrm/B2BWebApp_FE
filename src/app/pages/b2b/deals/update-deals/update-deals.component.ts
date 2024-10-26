@@ -38,8 +38,7 @@ export class UpdateDealsComponent implements OnInit {
   aadharUrl: string | ArrayBuffer;
   selectedPancardFile: any;
   pancardUrl: string | ArrayBuffer;
-  constructor(private activateRouter: ActivatedRoute, private router: Router, private fb: UntypedFormBuilder, 
-    private roleService: RoleService , private _http: HttpClient, private employeeService: EmployeeService,
+  constructor(private activateRouter: ActivatedRoute, private router: Router, private fb: UntypedFormBuilder , private _http: HttpClient, private employeeService: EmployeeService,
     private notificationService: NotificationService) {
     this.selectedId = this.activateRouter.snapshot.paramMap.get('id');
     this.selectedType = this.activateRouter.snapshot.paramMap.get('type');
@@ -64,13 +63,7 @@ export class UpdateDealsComponent implements OnInit {
     this.getEmployee();
   }
 
-  getAllRoles() {
-    this.roleService.getAllRoles().subscribe((data: any) => {
-      this.roles = data;
-    }, (error: any) => {
-
-    })
-  }
+  
   getEmployee(){
     this.employeeService.getEmployee(this.selectedId).subscribe((data: any) => {
       this.employeeData = data;
@@ -99,20 +92,9 @@ export class UpdateDealsComponent implements OnInit {
         })
       });
      
-      this.getAadharImagePath(this.employeeData.aadharFilePath);
       this.getPancardImagePath(this.employeeData.pancardFilePath);
       this.editEmployeeForm.markAllAsTouched();
       this.editEmployeeForm.updateValueAndValidity();
-      this.getAllRolesByDepartment();
-    }, (error: any) => {
-
-    })
-  }
-
-  getAllRolesByDepartment() {
-    this.roleService.getAllRolesByDepartment(this.editEmployeeForm.get('department').value).subscribe((data: any) => {
-      this.roles = data;
-      console.dir(this.roles);
     }, (error: any) => {
 
     })
@@ -161,29 +143,6 @@ export class UpdateDealsComponent implements OnInit {
 
   }
 
-  uploadImage() {
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('file', this.selectedFile);
-      this._http.post(AppConstants.uploadUrl, formData, { responseType: 'json' })
-        .subscribe(
-          (response: ImageDto) => {
-         this.imageData = response;
-            console.dir(this.imageData);
-            // this.editEmployeeForm.patchValue({
-            //   propertyMap:  this.imageData?.imageName
-            //  }) 
-            //  this.updateProperty();
-          },
-          (error: HttpErrorResponse) => {
-           console.dir(error);
-          }
-        );
-    }else{
-     // this.updateProperty();
-    }
-  }
-
   onPancardFileSelected(event: any): void {
 
     this.selectedPancardFile = event.target.files[0];
@@ -200,74 +159,8 @@ export class UpdateDealsComponent implements OnInit {
 
   }
 
-  onAadharFileSelected(event: any): void {
-
-    this.selectedAadharFile = event.target.files[0];
-    if (this.selectedAadharFile) {
-      console.dir(this.selectedAadharFile);
-      var reader = new FileReader();
-
-      reader.readAsDataURL(this.selectedAadharFile); // read file as data url
-
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.aadharUrl = event.target.result;
-      }
-    }
-
-  }
-
- 
-  getAadharImagePath(image: string) {
-    return AppConstants.GET_IMAGE_PATH(image);
-  }
-
   getPancardImagePath(image: string) {
     return AppConstants.GET_IMAGE_PATH(image);
-  }
-
-
-
-  onRoleChange(event: any) {
-    console.dir(event);
-    console.dir(event.target.value);
-    this.selectedRoleId = event.target.value;
-    console.dir(this.selectedRoleId);
-    console.dir(this.roles);
-   const role= this.roles.find(role => role.id == this.selectedRoleId);
-
-   console.dir(role)
-
-    this.editEmployeeForm.patchValue({
-      role: role,
-      roleId: this.selectedRoleId
-    })
-  }
-
-  uploadAadharImage() {
-    if (this.selectedAadharFile) {
-      const formData = new FormData();
-      formData.append('file', this.selectedAadharFile);
-      this._http.post(AppConstants.uploadUrl, formData, { responseType: 'json' })
-        .subscribe(
-          (response: ImageDto) => {
-            this.notificationService.showNotification("success","File Uploaded Successfully!");
-            this.aadharFileUploaded = true;
-            this.imageData = response;
-            console.dir(this.imageData);
-            console.dir(this.imageData.path);
-            console.dir(this.imageData?.path);
-            console.dir(response?.path);
-            this.editEmployeeForm.patchValue({
-              aadharFilePath: this.imageData.path
-            })
-            console.dir( this.editEmployeeForm.value)
-          },
-          (error: HttpErrorResponse) => {
-            this.notificationService.showNotification("danger","File Upload Failed");
-            console.dir(error);
-          }
-        );
-    }
   }
 
   uploadPancardImage() {
